@@ -2,7 +2,7 @@ import 'package:chat_bot/core/theme/app_theme.dart';
 import 'package:chat_bot/providers/main_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'screens/main_screen/main_screen.dart';
+import 'screens/main_screen.dart';
 
 void main(List<String> args) {
   runApp(

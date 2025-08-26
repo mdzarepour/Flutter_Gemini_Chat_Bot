@@ -33,5 +33,6 @@ class AppTextTheme {
     bodyLarge: _poppins(25, AppColors.materialWhite, FontWeight.w700),
     bodyMedium: _poppins(17, AppColors.materialWhite, FontWeight.w400),
     bodySmall: _dmSans(15, AppColors.materialPink, FontWeight.w500),
+    displayMedium: _poppins(17, AppColors.materialGrey, FontWeight.w400),
   );
 }

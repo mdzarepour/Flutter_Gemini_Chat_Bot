@@ -1,5 +1,5 @@
 import 'package:chat_bot/core/utils/app_colors.dart';
-import 'package:chat_bot/screens/chat_screen/chat_screen.dart';
+import 'package:chat_bot/screens/chat_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

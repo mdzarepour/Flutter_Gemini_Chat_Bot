@@ -1,5 +1,5 @@
 import 'package:chat_bot/core/utils/app_colors.dart';
-import 'package:chat_bot/screens/chat_screen/widgets/message_widget.dart';
+import 'package:chat_bot/screens/widgets/message_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
