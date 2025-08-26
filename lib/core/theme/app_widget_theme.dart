@@ -10,8 +10,13 @@ class AppWidgetTheme {
   );
   static BottomNavigationBarThemeData bottomNavigationBarTheme =
       BottomNavigationBarThemeData(
-        selectedLabelStyle: AppTextTheme.darkTextTheme.bodyMedium,
+        selectedIconTheme: IconThemeData(size: 28),
+        unselectedIconTheme: IconThemeData(size: 28),
         selectedItemColor: AppColors.materialWhite,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: AppColors.materialSecondBlue,
+        elevation: 0,
       );
 
   static FilledButtonThemeData filledButtonTheme = FilledButtonThemeData(
@@ -24,6 +29,7 @@ class AppWidgetTheme {
   );
 
   static InputDecorationTheme textFieldDarkTheme = InputDecorationTheme(
+    labelStyle: AppTextTheme.darkTextTheme.titleLarge,
     prefixIconColor: AppColors.materialWhite,
     hintStyle: AppTextTheme.darkTextTheme.titleMedium,
     filled: true,
