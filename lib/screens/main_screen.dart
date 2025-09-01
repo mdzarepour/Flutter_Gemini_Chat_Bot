@@ -12,7 +12,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const screens = [HistoryScreen(), ChatScreen(), ProfileScreen()];
+    final screens = [HistoryScreen(), ChatScreen(), ProfileScreen()];
     int selectedIndex = context.watch<MainProvider>().selectedScreenIndex;
 
     return GestureDetector(

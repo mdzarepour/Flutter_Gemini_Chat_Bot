@@ -1,168 +1,48 @@
 import 'package:chat_bot/core/utils/app_colors.dart';
-import 'package:chat_bot/screens/widgets/message_widget.dart';
+import 'package:chat_bot/providers/chat_provider.dart';
+import 'package:chat_bot/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
-enum Role { gemini, user }
+import 'package:provider/provider.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final size = MediaQuery.of(context).size;
+    final provider = context.watch<ChatProvider>();
+
     return Column(
-      spacing: 10,
       children: [
         Expanded(
-          child: ListView(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            children: [
-              MessageWidget(message: 'hi how are you ?', role: Role.user),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.user,
-              ),
-              MessageWidget(
-                message: 'thanks , how can i assist you ?',
-                role: Role.gemini,
-              ),
-            ],
-          ),
+          child: provider.messages.isEmpty
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(size: 45, Iconsax.folder_cross),
+                    SizedBox(height: 20),
+                    Text(AppStrings.emptyChatState),
+                  ],
+                )
+              : ListView(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  children: provider.messages,
+                ),
         ),
         SizedBox(
-          height: size.height * 0.065,
+          height: MediaQuery.of(context).size.height * 0.065,
           child: TextField(
+            controller: provider.controller,
             cursorColor: AppColors.materialWhite,
-            style: textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge,
             decoration: InputDecoration(
-              suffix: IconButton(onPressed: () {}, icon: Icon(Iconsax.send_1)),
-              label: Text('message'),
+              suffix: IconButton(
+                onPressed: () {
+                  context.read<ChatProvider>().sendPrompt();
+                },
+                icon: const Icon(Iconsax.send_1),
+              ),
+              label: const Text(AppStrings.inputLable),
             ),
           ),
         ),

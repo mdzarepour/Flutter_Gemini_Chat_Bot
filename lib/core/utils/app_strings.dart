@@ -1,6 +1,9 @@
 class AppStrings {
-  static const String appBarTitle = 'Gemini Chat Bot';
-  static const String navLableH = 'History';
-  static const String navLableC = 'Chat';
-  static const String navLableP = 'Profile';
+  static const inputLable = 'messsge';
+  static const appBarTitle = 'Gemini ChatBot';
+  static const emptyChatState = 'empty! start conversation ';
+}
+
+class GeminiStrings {
+  static const String apiKey = 'AIzaSyDOzFXNtutGI5r7BTFZsWkgoz5Rw5gf4dc';
 }
