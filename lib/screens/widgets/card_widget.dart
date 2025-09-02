@@ -1,5 +1,6 @@
 import 'package:chat_bot/core/utils/app_colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
   final Widget child;
@@ -11,7 +12,7 @@ class CardWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.materialSecondBlue,
+        color: Theme.of(context).colorScheme.onPrimaryContainer,
         borderRadius: BorderRadius.circular(20),
       ),
       child: child,
