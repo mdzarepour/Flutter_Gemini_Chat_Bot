@@ -1,6 +1,6 @@
 import 'package:chat_bot/core/utils/actions/snackbar_action.dart';
 import 'package:chat_bot/core/utils/constants/app_strings.dart';
-import 'package:chat_bot/providers/chat_provider.dart';
+import 'package:chat_bot/controller/chat_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +29,7 @@ class PopupAction {
       SnackbarAction.showSnackbar(context, AppStrings.textCopiedSnack);
     }
     if (resualt == 'delete') {
-      Provider.of<ChatProvider>(context, listen: false).deleteMessage(id);
+      Provider.of<ChatController>(context, listen: false).deleteMessage(id);
       SnackbarAction.showSnackbar(context, AppStrings.messageDeltedSnack);
     }
   }

@@ -1,5 +1,5 @@
 import 'package:chat_bot/core/utils/constants/app_colors.dart';
-import 'package:chat_bot/providers/chat_provider.dart';
+import 'package:chat_bot/controller/chat_controller.dart';
 import 'package:chat_bot/core/utils/constants/app_strings.dart';
 import 'package:chat_bot/resources/enum_classes.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +7,13 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+class ChatView extends StatelessWidget {
+  const ChatView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<ChatProvider>();
+    final provider = context.watch<ChatController>();
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         Expanded(
@@ -26,6 +27,7 @@ class ChatScreen extends StatelessWidget {
                   ],
                 )
               : ListView.builder(
+                  controller: provider.scrollController,
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   itemCount: provider.messages.length,
                   itemBuilder: (context, index) {
@@ -35,15 +37,16 @@ class ChatScreen extends StatelessWidget {
         ),
         if (provider.state == ScreenState.loading)
           SpinKitThreeBounce(color: Colors.white, size: 25),
+        SizedBox(height: size.height * 0.01),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.065,
+          height: size.height * 0.065,
           child: TextField(
-            controller: provider.controller,
+            controller: provider.textEditingController,
             cursorColor: AppColors.materialWhite,
             style: Theme.of(context).textTheme.titleLarge,
             decoration: InputDecoration(
               suffix: IconButton(
-                onPressed: () => context.read<ChatProvider>().sendPrompt(),
+                onPressed: () => context.read<ChatController>().sendPrompt(),
                 icon: const Icon(Iconsax.send_1),
               ),
               label: const Text(AppStrings.inputLable),

@@ -1,10 +1,10 @@
-import 'package:chat_bot/providers/main_provider.dart';
-import 'package:chat_bot/screens/widgets/card_widget.dart';
+import 'package:chat_bot/controller/main_controller.dart';
+import 'package:chat_bot/view/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileView extends StatelessWidget {
+  const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {

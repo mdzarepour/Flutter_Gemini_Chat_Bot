@@ -1,18 +1,18 @@
-import 'package:chat_bot/screens/history_screen.dart';
-import 'package:chat_bot/screens/profile_screen.dart';
-import 'package:chat_bot/providers/main_provider.dart';
-import 'package:chat_bot/screens/chat_screen.dart';
+import 'package:chat_bot/view/history_view.dart';
+import 'package:chat_bot/view/profile_view.dart';
+import 'package:chat_bot/controller/main_controller.dart';
+import 'package:chat_bot/view/chat_view.dart';
 import 'package:chat_bot/core/utils/constants/app_strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screens = [HistoryScreen(), ChatScreen(), ProfileScreen()];
+    final screens = [HistoryView(), ChatView(), ProfileView()];
     int selectedIndex = context.watch<MainProvider>().selectedScreenIndex;
 
     return GestureDetector(

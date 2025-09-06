@@ -1,8 +1,8 @@
-import 'package:chat_bot/screens/widgets/history_widget.dart';
+import 'package:chat_bot/view/widgets/history_widget.dart';
 import 'package:flutter/material.dart';
 
-class HistoryScreen extends StatelessWidget {
-  const HistoryScreen({super.key});
+class HistoryView extends StatelessWidget {
+  const HistoryView({super.key});
 
   @override
   Widget build(BuildContext context) {

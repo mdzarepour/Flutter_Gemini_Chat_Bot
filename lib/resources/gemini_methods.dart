@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:uuid/uuid.dart';
 import 'package:chat_bot/core/utils/constants/app_strings.dart';
 import 'package:chat_bot/resources/enum_classes.dart';
-import 'package:chat_bot/screens/widgets/message_widget.dart';
+import 'package:chat_bot/view/widgets/message_widget.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 class GeminiMethods {

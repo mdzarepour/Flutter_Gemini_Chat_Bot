@@ -1,15 +1,15 @@
-import 'package:chat_bot/providers/chat_provider.dart';
-import 'package:chat_bot/providers/main_provider.dart';
+import 'package:chat_bot/controller/chat_controller.dart';
+import 'package:chat_bot/controller/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'screens/main_screen.dart';
+import 'view/main_view.dart';
 
 void main(List<String> args) {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MainProvider()),
-        ChangeNotifierProvider(create: (context) => ChatProvider()),
+        ChangeNotifierProvider(create: (context) => ChatController()),
       ],
       child: Application(),
     ),
@@ -24,7 +24,7 @@ class Application extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: context.watch<MainProvider>().theme,
-      home: MainScreen(),
+      home: MainView(),
     );
   }
 }
