@@ -1,4 +1,3 @@
-import 'package:chat_bot/core/theme/app_theme.dart';
 import 'package:chat_bot/providers/chat_provider.dart';
 import 'package:chat_bot/providers/main_provider.dart';
 import 'package:flutter/material.dart';

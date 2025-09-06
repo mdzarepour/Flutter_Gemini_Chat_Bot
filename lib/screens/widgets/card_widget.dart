@@ -1,5 +1,3 @@
-import 'package:chat_bot/core/utils/app_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
@@ -9,7 +7,7 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onPrimaryContainer,

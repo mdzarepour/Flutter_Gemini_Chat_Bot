@@ -1,4 +1,4 @@
-import 'package:chat_bot/core/utils/app_colors.dart';
+import 'package:chat_bot/core/utils/constants/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 

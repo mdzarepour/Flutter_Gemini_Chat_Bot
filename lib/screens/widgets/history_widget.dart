@@ -37,6 +37,8 @@ class HistoryWidget extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 5,
               children: [
                 Text(
                   style: textTheme.displayMedium,

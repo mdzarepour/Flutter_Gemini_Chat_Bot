@@ -2,7 +2,7 @@ import 'package:chat_bot/screens/history_screen.dart';
 import 'package:chat_bot/screens/profile_screen.dart';
 import 'package:chat_bot/providers/main_provider.dart';
 import 'package:chat_bot/screens/chat_screen.dart';
-import 'package:chat_bot/core/utils/app_strings.dart';
+import 'package:chat_bot/core/utils/constants/app_strings.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

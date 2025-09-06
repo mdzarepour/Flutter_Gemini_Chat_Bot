@@ -1,3 +1,3 @@
 enum Role { gemini, user }
 
-enum ScreenState { empty, loading, completed }
+enum ScreenState { empty, loading, completed, error }
