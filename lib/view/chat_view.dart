@@ -1,7 +1,9 @@
 import 'package:chat_bot/core/utils/constants/app_colors.dart';
 import 'package:chat_bot/controller/chat_controller.dart';
 import 'package:chat_bot/core/utils/constants/app_strings.dart';
+import 'package:chat_bot/model/message_model.dart';
 import 'package:chat_bot/resources/enum_classes.dart';
+import 'package:chat_bot/view/widgets/message_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:iconsax/iconsax.dart';
@@ -31,7 +33,13 @@ class ChatView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   itemCount: provider.messages.length,
                   itemBuilder: (context, index) {
-                    return provider.messages[index];
+                    final MessageModel message = provider.messages[index];
+                    return MessageWidget(
+                      role: message.role,
+                      content: message.content,
+                      time: message.time,
+                      id: message.id,
+                    );
                   },
                 ),
         ),

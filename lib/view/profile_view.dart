@@ -23,9 +23,9 @@ class ProfileView extends StatelessWidget {
               children: [
                 Text('Theme :'),
                 Switch(
-                  value: context.watch<MainProvider>().isDarkThem,
+                  value: context.watch<MainController>().isDarkThem,
                   onChanged: (_) {
-                    context.read<MainProvider>().changeTheme();
+                    context.read<MainController>().changeTheme();
                   },
                 ),
               ],

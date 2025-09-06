@@ -1,7 +1,7 @@
 import 'package:chat_bot/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class MainProvider extends ChangeNotifier {
+class MainController extends ChangeNotifier {
   int _selectedScreenIndex = 0;
   int get selectedScreenIndex => _selectedScreenIndex;
 

@@ -6,6 +6,8 @@ class AppStrings {
   static const textCopiedSnack = 'text copied to clipboard';
   static const copyMessage = 'copy message';
   static const deleteMessage = 'delete message';
+  static const defualtGeminiMessage =
+      'we have some problem on servers please try again after minutes';
 }
 
 class GeminiStrings {

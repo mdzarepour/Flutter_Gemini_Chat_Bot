@@ -1,10 +1,12 @@
+import 'package:chat_bot/model/message_model.dart';
 import 'package:chat_bot/resources/enum_classes.dart';
 import 'package:chat_bot/resources/gemini_methods.dart';
-import 'package:chat_bot/view/widgets/message_widget.dart';
+import 'package:chat_bot/resources/hive_methods.dart';
 import 'package:flutter/material.dart';
 
 class ChatController extends ChangeNotifier {
-  final GeminiMethods geminiMethods = GeminiMethods();
+  final GeminiMethods _geminiMethods = GeminiMethods();
+  final HiveMethods _hiveMethods = HiveMethods();
 
   ScreenState _state = ScreenState.empty;
   ScreenState get state => _state;
@@ -15,26 +17,26 @@ class ChatController extends ChangeNotifier {
   final ScrollController _scrollController = ScrollController();
   ScrollController get scrollController => _scrollController;
 
-  List<MessageWidget> _messages = [];
-  List<MessageWidget> get messages => _messages;
+  List<MessageModel> _messages = [];
+  List<MessageModel> get messages => _messages;
 
   void sendPrompt() async {
     if (textEditingController.text.isEmpty) return;
 
-    final MessageWidget userMessage = geminiMethods.sendUserPrompt(
+    final MessageModel userMessage = _geminiMethods.sendUserPrompt(
       prompt: _textEditingController.text,
     );
     _messages = [..._messages, userMessage];
-    updateState(ScreenState.loading);
     scroller();
+    updateState(ScreenState.loading);
 
-    MessageWidget geminiMessage = await geminiMethods.getGeminiResponse(
+    MessageModel geminiMessage = await _geminiMethods.getGeminiResponse(
       prompt: _textEditingController.text,
     );
-    _messages = [..._messages, geminiMessage];
     textEditingController.clear();
-    updateState(ScreenState.completed);
+    _messages = [..._messages, geminiMessage];
     scroller();
+    updateState(ScreenState.completed);
   }
 
   void deleteMessage(String messageId) {

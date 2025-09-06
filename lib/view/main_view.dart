@@ -13,7 +13,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screens = [HistoryView(), ChatView(), ProfileView()];
-    int selectedIndex = context.watch<MainProvider>().selectedScreenIndex;
+    int selectedIndex = context.watch<MainController>().selectedScreenIndex;
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
@@ -35,7 +35,7 @@ class MainView extends StatelessWidget {
               child: BottomNavigationBar(
                 currentIndex: selectedIndex,
                 onTap: (index) =>
-                    context.read<MainProvider>().changeSelectedScreen(index),
+                    context.read<MainController>().changeSelectedScreen(index),
                 items: [
                   BottomNavigationBarItem(
                     icon: Icon(Iconsax.clock),
